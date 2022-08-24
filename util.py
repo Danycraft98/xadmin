@@ -265,7 +265,7 @@ def model_ngettext(obj, n=None):
         obj = obj.model
     d = model_format_dict(obj)
     singular, plural = d["verbose_name"], d["verbose_name_plural"]
-    return ungettext(singular, plural, n or 0)
+    return ngettext(singular, plural, n or 0)
 
 def is_rel_field(name,model):
     if hasattr(name,'split') and name.find("__")>0:
