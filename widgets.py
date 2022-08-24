@@ -3,7 +3,6 @@ Form Widget classes specific to the Django admin site.
 """
 from itertools import chain
 from django import forms
-from django.forms.widgets import RadioFieldRenderer, RadioChoiceInput
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape
@@ -70,8 +69,7 @@ class AdminSplitDateTime(forms.SplitDateTimeWidget):
                         (rendered_widgets[0], rendered_widgets[1]))
 
 
-class AdminRadioInput(RadioChoiceInput):
-
+class AdminRadioSelect(forms.RadioSelect):
     def render(self, name=None, value=None, attrs=None, choices=()):
         name = name or self.name
         value = value or self.value
@@ -86,24 +84,6 @@ class AdminRadioInput(RadioChoiceInput):
             return mark_safe(u'<label%s class="radio-inline">%s %s</label>' % (label_for, self.tag(), choice_label))
         else:
             return mark_safe(u'<div class="radio"><label%s>%s %s</label></div>' % (label_for, self.tag(), choice_label))
-
-
-class AdminRadioFieldRenderer(RadioFieldRenderer):
-
-    def __iter__(self):
-        for i, choice in enumerate(self.choices):
-            yield AdminRadioInput(self.name, self.value, self.attrs.copy(), choice, i)
-
-    def __getitem__(self, idx):
-        choice = self.choices[idx]  # Let the IndexError propogate
-        return AdminRadioInput(self.name, self.value, self.attrs.copy(), choice, idx)
-
-    def render(self):
-        return mark_safe(u'\n'.join([force_text(w) for w in self]))
-
-
-class AdminRadioSelect(forms.RadioSelect):
-    renderer = AdminRadioFieldRenderer
 
 
 class AdminCheckboxSelect(forms.CheckboxSelectMultiple):
