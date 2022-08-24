@@ -10,7 +10,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
 from django.utils.encoding import force_bytes, smart_bytes, smart_str
 from django.utils.translation import ngettext
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.conf import settings
 from django.forms import Media
 from django.utils.translation import get_language
@@ -18,10 +18,7 @@ from django.contrib.admin.utils import label_for_field,help_text_for_field
 import datetime
 import decimal
 
-if 'django.contrib.staticfiles' in settings.INSTALLED_APPS:
-    from django.contrib.staticfiles.templatetags.staticfiles import static
-else:
-    from django.templatetags.static import static
+from django.templatetags.static import static
 
 try:
     import json
