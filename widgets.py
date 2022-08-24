@@ -3,12 +3,12 @@ Form Widget classes specific to the Django admin site.
 """
 from itertools import chain
 from django import forms
-from django.utils.encoding import force_text
+from django.utils.encoding import force_bytes
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape
 from django.utils.translation import gettext as _
 
-from util import vendor
+from .util import vendor
 
 
 class AdminDateWidget(forms.DateInput):
@@ -79,7 +79,7 @@ class AdminRadioSelect(forms.RadioSelect):
             label_for = ' for="%s_%s"' % (self.attrs['id'], self.index)
         else:
             label_for = ''
-        choice_label = conditional_escape(force_text(self.choice_label))
+        choice_label = conditional_escape(force_bytes(self.choice_label))
         if attrs.get('inline', False):
             return mark_safe(u'<label%s class="radio-inline">%s %s</label>' % (label_for, self.tag(), choice_label))
         else:
@@ -94,7 +94,7 @@ class AdminCheckboxSelect(forms.CheckboxSelectMultiple):
         final_attrs = self.build_attrs(attrs, name=name)
         output = []
         # Normalize to strings
-        str_values = set([force_text(v) for v in value])
+        str_values = set([force_bytes(v) for v in value])
         for i, (option_value, option_label) in enumerate(chain(self.choices, choices)):
             # If an ID attribute was given, add a numeric index as a suffix,
             # so that the checkboxes don't all have the same ID attribute.
@@ -106,9 +106,9 @@ class AdminCheckboxSelect(forms.CheckboxSelectMultiple):
 
             cb = forms.CheckboxInput(
                 final_attrs, check_test=lambda value: value in str_values)
-            option_value = force_text(option_value)
+            option_value = force_bytes(option_value)
             rendered_cb = cb.render(name, option_value)
-            option_label = conditional_escape(force_text(option_label))
+            option_label = conditional_escape(force_bytes(option_label))
 
             if final_attrs.get('inline', False):
                 output.append(u'<label%s class="checkbox-inline">%s %s</label>' % (label_for, rendered_cb, option_label))
@@ -127,9 +127,9 @@ class AdminSelectMultiple(forms.SelectMultiple):
 
 class AdminFileWidget(forms.ClearableFileInput):
     template_with_initial = (u'<p class="file-upload">%s</p>'
-                             % forms.ClearableFileInput.template_with_initial)
+                             % forms.ClearableFileInput.initial_text)
     template_with_clear = (u'<span class="clearable-file-input">%s</span>'
-                           % forms.ClearableFileInput.template_with_clear)
+                           % forms.ClearableFileInput.clear_checkbox_label)
 
 
 class AdminTextareaWidget(forms.Textarea):

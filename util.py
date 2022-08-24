@@ -50,7 +50,7 @@ def xstatic(*tags):
         try:
             for p in tag.split('.'):
                 node = node[p]
-        except (Exception, e):
+        except Exception as e:
             if tag.startswith('xadmin'):
                 file_type = tag.split('.')[-1]
                 if file_type in ('css', 'js'):
@@ -192,7 +192,7 @@ class NestedObjects(Collector):
                 self.add_edge(None, obj)
         try:
             return super(NestedObjects, self).collect(objs, source_attr=source_attr, **kwargs)
-        except (models.ProtectedError, e):
+        except models.ProtectedError as e:
             self.protected.update(e.protected_objects)
 
     def related_objects(self, related, objs):
