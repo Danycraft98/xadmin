@@ -7,7 +7,7 @@ from django.forms.widgets import RadioFieldRenderer, RadioChoiceInput
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from util import vendor
 

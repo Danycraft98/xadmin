@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.utils.encoding import force_bytes, smart_bytes
 from django.utils.html import escape
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.utils.xmlutils import SimplerXMLGenerator
 from django.db.models import BooleanField, NullBooleanField
 

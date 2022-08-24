@@ -9,11 +9,11 @@ from django.utils.encoding import force_bytes, smart_bytes
 from django.utils.html import escape, conditional_escape
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from xadmin.util import lookup_field, display_for_field, label_for_field, boolean_icon
 
-from base import ModelAdminView, filter_hook, inclusion_tag, csrf_protect_m
+from .base import ModelAdminView, filter_hook, inclusion_tag, csrf_protect_m
 
 # List settings
 ALL_VAR = 'all'

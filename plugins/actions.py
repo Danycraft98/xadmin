@@ -7,7 +7,7 @@ from django.template import loader
 from django.template.response import TemplateResponse
 from django.utils.encoding import force_bytes
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext as _, ungettext
+from django.utils.translation import gettext as _, ngettext
 from django.utils.text import capfirst
 
 from django.contrib.admin.utils import get_deleted_objects
@@ -153,7 +153,7 @@ class ActionPlugin(BaseAdminPlugin):
     def get_context(self, context):
         if self.actions and self.admin_view.result_count:
             av = self.admin_view
-            selection_note_all = ungettext('%(total_count)s selected',
+            selection_note_all = ngettext('%(total_count)s selected',
                                            'All %(total_count)s selected', av.result_count)
 
             new_context = {

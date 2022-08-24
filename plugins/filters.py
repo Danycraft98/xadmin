@@ -9,7 +9,7 @@ from django.db.models.fields import FieldDoesNotExist
 from django.db.models.sql.query import LOOKUP_SEP, QUERY_TERMS
 from django.template import loader
 from django.utils.encoding import smart_str
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from xadmin.filters import manager as filter_manager, FILTER_PREFIX, SEARCH_VAR, DateFieldListFilter, RelatedFieldSearchFilter
 from xadmin.sites import site

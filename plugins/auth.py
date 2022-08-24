@@ -8,7 +8,7 @@ from django.template.response import TemplateResponse
 from django.utils.decorators import method_decorator
 from django.http import HttpResponseRedirect
 from django.utils.html import escape
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.views.decorators.debug import sensitive_post_parameters
 from django.forms import ModelMultipleChoiceField
 from xadmin.layout import Fieldset, Main, Side, Row, FormHelper

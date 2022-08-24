@@ -1,7 +1,7 @@
 
 from django.template import loader
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.contenttypes.models import ContentType

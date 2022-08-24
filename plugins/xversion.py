@@ -11,7 +11,7 @@ from django.template.response import TemplateResponse
 from django.utils.encoding import force_bytes
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from xadmin.layout import Field, render_field
 from xadmin.plugins.inline import Inline
 from xadmin.plugins.actions import BaseActionView

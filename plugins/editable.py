@@ -6,7 +6,7 @@ from django.http import Http404, HttpResponse
 from django.utils.encoding import force_bytes, smart_bytes
 from django.utils.html import escape, conditional_escape
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from xadmin.plugins.ajax import JsonErrorDict
 from xadmin.sites import site
 from xadmin.util import lookup_field, display_for_field, label_for_field, unquote, boolean_icon

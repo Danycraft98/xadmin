@@ -1,5 +1,5 @@
 from django.db.models import FieldDoesNotExist, Avg, Max, Min, Count, Sum
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from xadmin.sites import site
 from xadmin.views import BaseAdminPlugin, ListAdminView

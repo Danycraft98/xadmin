@@ -7,7 +7,7 @@ from django.utils.encoding import force_bytes
 from django.utils.encoding import smart_str
 from django.utils.safestring import mark_safe
 from django.db.models.sql.query import LOOKUP_SEP
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.db import models
 
 

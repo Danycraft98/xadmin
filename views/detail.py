@@ -12,12 +12,12 @@ from django.template.response import TemplateResponse
 from django.utils.encoding import force_bytes, smart_bytes
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.utils.html import conditional_escape
 from xadmin.layout import FormHelper, Layout, Fieldset, Container, Column, Field, Col, TabHolder
 from xadmin.util import unquote, lookup_field, display_for_field, boolean_icon, label_for_field
 
-from base import ModelAdminView, filter_hook, csrf_protect_m
+from .base import ModelAdminView, filter_hook, csrf_protect_m
 
 # Text to display within change-list table cells if the value is blank.
 EMPTY_CHANGELIST_VALUE = _('Null')

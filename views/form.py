@@ -10,13 +10,13 @@ from django.template.response import TemplateResponse
 from django.utils.encoding import force_bytes
 from django.utils.html import escape
 from django.template import loader
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from xadmin import widgets
 from xadmin.layout import FormHelper, Layout, Fieldset, TabHolder, Container, Column, Col, Field
 from xadmin.util import unquote
 from xadmin.views.detail import DetailAdminUtil
 
-from base import CommAdminView, filter_hook, csrf_protect_m
+from .base import CommAdminView, filter_hook, csrf_protect_m
 
 class FormAdminView(CommAdminView):
     form = forms.ModelForm
