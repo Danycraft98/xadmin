@@ -9,7 +9,7 @@ from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
 from django.utils.encoding import force_bytes, smart_bytes, smart_str
-from django.utils.translation import ungettext
+from django.utils.translation import ngettext
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.forms import Media
